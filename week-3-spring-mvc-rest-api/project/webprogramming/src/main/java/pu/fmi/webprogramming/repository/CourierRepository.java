@@ -27,6 +27,13 @@ public class CourierRepository {
     return availableCourier;
   }
 
+  public Courier findById(Long id) {
+    return couriers.stream()
+        .filter(courier -> courier.getId().equals(id))
+        .findFirst()
+        .orElse(null);
+  }
+
   public List<Courier> getAllCouriers() {
     return couriers;
   }
